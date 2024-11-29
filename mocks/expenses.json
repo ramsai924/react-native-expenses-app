@@ -1,0 +1,72 @@
+[
+  {
+    "id": "e1",
+    "title": "Grocery Shopping",
+    "amount": 1200,
+    "date": "2024-11-20",
+    "category": "Groceries"
+  },
+  {
+    "id": "e2",
+    "title": "Electricity Bill",
+    "amount": 3500,
+    "date": "2024-11-15",
+    "category": "Utilities"
+  },
+  {
+    "id": "e3",
+    "title": "Dinner at Restaurant",
+    "amount": 1500,
+    "date": "2024-11-22",
+    "category": "Food"
+  },
+  {
+    "id": "e4",
+    "title": "Monthly Gym Membership",
+    "amount": 2500,
+    "date": "2024-11-01",
+    "category": "Fitness"
+  },
+  {
+    "id": "e5",
+    "title": "Petrol",
+    "amount": 1000,
+    "date": "2024-11-18",
+    "category": "Transport"
+  },
+  {
+    "id": "e6",
+    "title": "Movie Tickets",
+    "amount": 800,
+    "date": "2024-11-10",
+    "category": "Entertainment"
+  },
+  {
+    "id": "e7",
+    "title": "Online Course Purchase",
+    "amount": 5000,
+    "date": "2024-11-05",
+    "category": "Education"
+  },
+  {
+    "id": "e8",
+    "title": "Phone Recharge",
+    "amount": 699,
+    "date": "2024-11-21",
+    "category": "Utilities"
+  },
+  {
+    "id": "e9",
+    "title": "Clothing",
+    "amount": 3000,
+    "date": "2024-11-12",
+    "category": "Shopping"
+  },
+  {
+    "id": "e10",
+    "title": "Car Service",
+    "amount": 7000,
+    "date": "2024-11-03",
+    "category": "Transport"
+  }
+]
