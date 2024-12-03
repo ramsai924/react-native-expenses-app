@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { emptyExpensesContext } from './constants'
 import { getExpenses } from '../../services';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ExpensesContext = createContext(emptyExpensesContext)
 
@@ -48,15 +49,19 @@ function RootContext({ children }) {
 
     const createToken = (token) => {
       setToken(token)
+      AsyncStorage.setItem('token', token)
     }
-
+    
     const deleteToken = () => {
       setToken(null)
+      AsyncStorage.removeItem('token')
     }
 
     useEffect(() => {
-      fetchExpenses()
-    }, [])
+      if(token){
+        fetchExpenses()
+      }
+    }, [token])
     
     const contextValue = {
         expenses,

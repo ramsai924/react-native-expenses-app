@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as SplashScreen from 'expo-splash-screen';
 
 import ManageExpenses from './screens/ManageExpenses';
 import RecentExpenses from './screens/RecentExpenses';
@@ -10,6 +13,13 @@ import Login from './screens/Login';
 import Signup from './screens/SignUp';
 import { useExpensesContext } from './store/context';
 
+
+SplashScreen.preventAutoHideAsync();
+
+// SplashScreen.setOptions({
+//   duration: 1000,
+//   fade: true,
+// });
 
 const Stack = createNativeStackNavigator()
 const BottomTab = createBottomTabNavigator()
@@ -124,7 +134,30 @@ const Authentication = () => {
 }
 
 const RootStack = () => {
-  const { token } = useExpensesContext()
+  const [appIsReady, setAppIsReady] = useState(false);
+  const { token, createToken } = useExpensesContext()
+
+     const getStoredToken = async () => {
+      try {
+        const storedToken = await AsyncStorage.getItem('expenses-token')
+        if(storedToken !== null){
+          createToken(storedToken)
+          setAppIsReady(true);
+          SplashScreen.hide();
+        }
+      } catch (error) {
+        
+      }
+    }
+
+    useEffect(() => {
+      getStoredToken()
+    }, [])
+
+    if (!appIsReady) {
+    return null;
+  }
+
   return (
     <>
       {!token && <Authentication />}
